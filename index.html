@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Invitation de Mariage — AMINE | Famille ISSAADI DJEBAR</title>
+<meta name="description" content="Invitation digitale au mariage de AMINE — Famille ISSAADI DJEBAR — 01 Octobre 2026 — Salle de fête Ksar Djihan, Aïn Romane, Sétif.">
+<meta name="theme-color" content="#4A111B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     VARIABLES & RESET
+  ============================================================ */
+  :root{
+    --bordeaux:#4A111B;
+    --bordeaux-dark:#2E0A10;
+    --bordeaux-soft:#6b1f2c;
+    --brown-warm:#6b3a2e;
+    --gold:#C9A45C;
+    --gold-light:#E4C888;
+    --gold-pale:#F1DFB8;
+    --champagne:#F3E5D8;
+    --ivory:#FBF7F0;
+    --green-dark:#20281f;
+    --font-script:'Alex Brush', cursive;
+    --font-display:'Cinzel', serif;
+    --font-serif:'Playfair Display', serif;
+    --font-body:'Cormorant Garamond', serif;
+    --ease-elegant: cubic-bezier(.65,0,.35,1);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  html.pre-open, html.pre-open body{
+    height:100%;
+    overflow:hidden;
+  }
+
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--bordeaux-dark);
+    font-family:var(--font-body);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img,svg{ max-width:100%; display:block; }
+
+  button{
+    font-family:inherit;
+    cursor:pointer;
+    background:none;
+    border:none;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  h1,h2,h3{ margin:0; font-weight:400; }
+
+  p{ margin:0; }
+
+  :focus-visible{
+    outline:2px solid var(--gold-light);
+    outline-offset:3px;
+  }
+
+  .visually-hidden{
+    position:absolute !important;
+    width:1px;height:1px;
+    padding:0;margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;border:0;
+  }
+
+  /* ============================================================
+     FLORAL MOTIF (shared SVG symbol, reused everywhere)
+  ============================================================ */
+  .floral-corner{
+    position:absolute;
+    width:clamp(90px,18vw,190px);
+    height:auto;
+    opacity:.85;
+    pointer-events:none;
+    z-index:2;
+  }
+  .floral-corner--tl{ top:-10px; left:-10px; transform:rotate(0deg); }
+  .floral-corner--tr{ top:-10px; right:-10px; transform:scaleX(-1); }
+  .floral-corner--bl{ bottom:-10px; left:-10px; transform:scaleY(-1); }
+  .floral-corner--br{ bottom:-10px; right:-10px; transform:scale(-1,-1); }
+  .floral-corner--sm{ width:clamp(60px,12vw,120px); opacity:.7; }
+
+  /* ============================================================
+     TEXTURE ARABESQUE & ILLUSTRATIONS ORIENTALES
+  ============================================================ */
+  .arabesque-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:.07;
+    pointer-events:none;
+  }
+  .arabesque-bg rect{ fill:url(#arabesque-pattern); }
+
+  .ornate-frame{
+    position:relative;
+  }
+  .ornate-frame .corner-flourish{
+    position:absolute;
+    width:34px;
+    height:34px;
+    color:var(--gold);
+    opacity:.85;
+    pointer-events:none;
+    z-index:3;
+  }
+  .ornate-frame .corner-flourish--tl{ top:8px; left:8px; }
+  .ornate-frame .corner-flourish--tr{ top:8px; right:8px; transform:rotate(90deg); }
+  .ornate-frame .corner-flourish--br{ bottom:8px; right:8px; transform:rotate(180deg); }
+  .ornate-frame .corner-flourish--bl{ bottom:8px; left:8px; transform:rotate(270deg); }
+
+  .rings-illustration{
+    width:clamp(56px,10vw,76px);
+    height:auto;
+    color:var(--gold);
+    margin:0 auto .6rem;
+  }
+
+  .palace-illustration{
+    width:clamp(150px,32vw,220px);
+    height:auto;
+    color:var(--gold);
+    margin:0 auto 1rem;
+  }
+
+  .palace-watermark{
+    position:absolute;
+    left:50%;
+    bottom:-4%;
+    transform:translateX(-50%);
+    width:min(640px,140vw);
+    height:auto;
+    color:var(--gold-light);
+    opacity:.07;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .section-vignette{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:radial-gradient(ellipse at 50% 0%, transparent 40%, rgba(0,0,0,.28) 100%);
+  }
+
+  /* ============================================================
+     GOLD PARTICLES
+  ============================================================ */
+  .particles-layer{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+  }
+  .particle{
+    position:absolute;
+    bottom:-5%;
+    border-radius:50%;
+    background:radial-gradient(circle, #fbe7bb 0%, var(--gold) 55%, transparent 75%);
+    opacity:0;
+    animation-name:floatParticle;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    will-change:transform,opacity;
+  }
+  @keyframes floatParticle{
+    0%{ transform:translate3d(0,0,0) scale(var(--s,1)); opacity:0; }
+    12%{ opacity:var(--o,.75); }
+    50%{ transform:translate3d(var(--dx,15px), -55vh, 0) scale(var(--s,1)); }
+    88%{ opacity:var(--o,.75); }
+    100%{ transform:translate3d(calc(var(--dx,15px) * 2), -110vh, 0) scale(var(--s,1)); opacity:0; }
+  }
+
+  /* ============================================================
+     STEP 1 — ENVELOPE SCREEN
+  ============================================================ */
+  .envelope-screen{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(ellipse at 50% 30%, var(--bordeaux-soft) 0%, var(--bordeaux) 45%, var(--bordeaux-dark) 100%);
+    overflow:hidden;
+    transition:opacity 1.1s var(--ease-elegant), visibility 1.1s var(--ease-elegant);
+  }
+  .envelope-screen::before{
+    /* subtle paper-grain texture */
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.06;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.5) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.35) 0 1px, transparent 1px 4px);
+    mix-blend-mode:overlay;
+    pointer-events:none;
+  }
+  .envelope-screen--hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+  .envelope-intro{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:clamp(1.1rem,3vw,2rem);
+    padding:1.5rem;
+    width:100%;
+    max-width:520px;
+    transform:scale(1);
+    transition:transform 1.3s var(--ease-elegant), opacity 1.3s var(--ease-elegant);
+  }
+  .envelope-intro.envelope--zoom{
+    transform:scale(1.14);
+    opacity:0;
+  }
+
+  .envelope-preamble{
+    font-family:var(--font-body);
+    font-style:italic;
+    color:var(--champagne);
+    font-size:clamp(1.05rem,3.2vw,1.5rem);
+    letter-spacing:.04em;
+    text-align:center;
+    opacity:0;
+    animation:fadeInDown 1.4s var(--ease-elegant) .3s forwards;
+  }
+  @keyframes fadeInDown{
+    from{ opacity:0; transform:translateY(-14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .envelope{
+    position:relative;
+    width:min(300px,72vw);
+    height:min(210px,50vw);
+    opacity:0;
+    animation:fadeInUp 1.4s var(--ease-elegant) .5s forwards;
+  }
+  @keyframes fadeInUp{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .envelope-back{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(160deg, var(--champagne) 0%, var(--gold-pale) 55%, var(--gold-light) 100%);
+    border-radius:8px;
+    box-shadow:0 25px 60px -15px rgba(0,0,0,.55), 0 0 0 1px rgba(201,164,92,.4);
+  }
+
+  .card-inside{
+    position:absolute;
+    left:6%;
+    right:6%;
+    top:8%;
+    bottom:8%;
+    background:linear-gradient(155deg, var(--ivory), var(--champagne));
+    border:1px solid var(--gold);
+    border-radius:6px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:.35rem;
+    z-index:2;
+    opacity:0;
+    transform:translateY(8%) scale(.94);
+    box-shadow:0 8px 30px rgba(46,10,16,.25);
+    transition:transform 1.15s var(--ease-elegant), opacity .7s ease .1s, z-index 0s .1s;
+  }
+  .card-inside.card-out{
+    opacity:1;
+    z-index:5;
+    transform:translateY(-62%) scale(1.06);
+  }
+  .card-name{
+    font-family:var(--font-script);
+    font-size:clamp(2rem,7.5vw,2.8rem);
+    color:var(--bordeaux);
+  }
+  .card-sub{
+    font-family:var(--font-display);
+    font-size:.6rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brown-warm);
+  }
+
+  .envelope-flap{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:52%;
+    z-index:3;
+    background:linear-gradient(135deg, var(--bordeaux-soft), var(--bordeaux));
+    box-shadow:inset 0 0 0 1px rgba(201,164,92,.5);
+    transition:transform 1.05s var(--ease-elegant);
+  }
+  .envelope-flap--left{
+    left:0;
+    border-radius:8px 0 0 8px;
+    transform-origin:left center;
+    clip-path:polygon(0 0, 100% 0, 46% 50%, 100% 100%, 0 100%);
+  }
+  .envelope-flap--right{
+    right:0;
+    border-radius:0 8px 8px 0;
+    transform-origin:right center;
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%, 54% 50%);
+  }
+  .envelope.doors-open .envelope-flap--left{
+    transform:translateX(-108%) rotateY(-18deg);
+  }
+  .envelope.doors-open .envelope-flap--right{
+    transform:translateX(108%) rotateY(18deg);
+  }
+
+  .envelope-seal{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:52px;
+    height:52px;
+    transform:translate(-50%,-50%) scale(1);
+    background:radial-gradient(circle at 35% 30%, var(--gold-light), var(--gold) 60%, #9c7c3f 100%);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.4);
+    z-index:4;
+    transition:transform .55s var(--ease-elegant), opacity .55s var(--ease-elegant);
+  }
+  .envelope-seal span{
+    font-family:var(--font-script);
+    font-size:1.5rem;
+    color:var(--bordeaux-dark);
+  }
+  .envelope.sealing-out .envelope-seal{
+    transform:translate(-50%,-50%) scale(0);
+    opacity:0;
+  }
+
+  .btn-open{
+    position:relative;
+    padding:.85rem 2.4rem;
+    isolation:isolate;
+    font-family:var(--font-display);
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ivory);
+    background:transparent;
+    border:1px solid var(--gold);
+    border-radius:999px;
+    transition:background .4s ease, color .4s ease, box-shadow .4s ease, opacity .5s ease, transform .3s ease;
+    opacity:0;
+    animation:fadeInUp 1.2s var(--ease-elegant) .9s forwards;
+  }
+  .btn-open:hover, .btn-open:focus-visible{
+    background:var(--gold);
+    color:var(--bordeaux-dark);
+    box-shadow:0 0 22px rgba(201,164,92,.55);
+  }
+  .btn-open:active{ transform:scale(.97); }
+  .btn-open[disabled]{ opacity:.35; pointer-events:none; }
+  .btn-open::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border:1px solid rgba(228,200,136,.3);
+    border-radius:999px;
+    pointer-events:none;
+  }
+
+  .sound-toggle{
+    position:absolute;
+    top:1.1rem;
+    right:1.1rem;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:1px solid rgba(228,200,136,.5);
+    color:var(--gold-light);
+    font-size:1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.15);
+    transition:background .3s ease;
+  }
+  .sound-toggle:hover{ background:rgba(0,0,0,.3); }
+
+  /* ============================================================
+     MAIN CONTENT
+  ============================================================ */
+  .main-content{
+    position:relative;
+  }
+
+  .section{
+    position:relative;
+    padding:clamp(3.5rem,9vw,6.5rem) 1.4rem;
+    overflow:hidden;
+  }
+
+  .section-inner{
+    position:relative;
+    z-index:2;
+    max-width:780px;
+    margin:0 auto;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 1s var(--ease-elegant), transform 1s var(--ease-elegant);
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal-delay-1{ transition-delay:.12s; }
+  .reveal-delay-2{ transition-delay:.24s; }
+  .reveal-delay-3{ transition-delay:.36s; }
+
+  .eyebrow{
+    font-family:var(--font-display);
+    font-size:clamp(.7rem,1.6vw,.85rem);
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-align:center;
+  }
+
+  .divider{
+    width:64px;
+    height:1px;
+    margin:1.1rem auto;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .divider::after{
+    content:"❁";
+    display:block;
+    margin-top:-11px;
+    text-align:center;
+    color:var(--gold);
+    font-size:.9rem;
+    background:inherit;
+  }
+
+  /* ---------- HERO / INVITATION ---------- */
+  .hero-section{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(180deg, var(--bordeaux-dark) 0%, var(--bordeaux) 55%, var(--bordeaux-soft) 100%);
+    color:var(--ivory);
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.9rem;
+    padding:2rem 1rem;
+  }
+  .hero-family{
+    font-family:var(--font-display);
+    font-size:clamp(1rem,3vw,1.4rem);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+  }
+  .hero-lede{
+    font-family:var(--font-body);
+    font-style:italic;
+    font-size:clamp(1rem,2.6vw,1.35rem);
+    color:var(--champagne);
+    max-width:32ch;
+  }
+  .hero-crest{
+    width:clamp(64px,12vw,92px);
+    height:auto;
+    color:var(--gold);
+    opacity:.9;
+    margin-bottom:.2rem;
+  }
+  .hero-name{
+    font-family:var(--font-script);
+    font-weight:400;
+    font-size:clamp(4.2rem,16vw,8.2rem);
+    line-height:1;
+    letter-spacing:0;
+    background:linear-gradient(100deg, var(--gold) 0%, var(--gold-light) 30%, #fff3d6 45%, var(--gold-light) 60%, var(--gold) 100%);
+    background-size:220% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin:.1rem 0 0;
+    animation:shimmerGold 6s ease-in-out infinite;
+  }
+  @keyframes shimmerGold{
+    0%,100%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+  }
+  .hero-name-sub{
+    font-family:var(--font-display);
+    font-size:clamp(.72rem,1.8vw,.9rem);
+    letter-spacing:.3em;
+    color:var(--gold-light);
+    margin-top:.1rem;
+  }
+  .hero-date{
+    font-family:var(--font-display);
+    font-size:clamp(1.1rem,3.2vw,1.5rem);
+    letter-spacing:.16em;
+    color:var(--ivory);
+  }
+  .hero-time{
+    font-family:var(--font-body);
+    font-size:clamp(1rem,2.6vw,1.2rem);
+    color:var(--gold-light);
+    letter-spacing:.08em;
+  }
+
+  .scroll-indicator{
+    position:absolute;
+    bottom:clamp(1rem,4vh,2rem);
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.35rem;
+    font-family:var(--font-display);
+    font-size:.65rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    z-index:3;
+    animation:pulseIndicator 2.6s ease-in-out infinite;
+    transition:opacity .6s ease;
+  }
+  .scroll-indicator.hidden-indicator{
+    opacity:0;
+    pointer-events:none;
+  }
+  @keyframes pulseIndicator{
+    0%,100%{ opacity:.5; transform:translate(-50%,0); }
+    50%{ opacity:1; transform:translate(-50%,6px); }
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown-section{
+    background:var(--ivory);
+    text-align:center;
+  }
+  .countdown-title{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(1.4rem,4vw,2.1rem);
+    color:var(--bordeaux);
+  }
+  .countdown{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:clamp(.7rem,3vw,1.6rem);
+    margin-top:2.2rem;
+  }
+  .countdown-item{
+    min-width:78px;
+    padding:1.1rem .6rem;
+    background:linear-gradient(160deg, var(--champagne), var(--ivory));
+    border:1px solid var(--gold);
+    border-radius:10px;
+    box-shadow:0 10px 25px -12px rgba(74,17,27,.35);
+  }
+  .countdown-item span{
+    display:block;
+    font-family:var(--font-display);
+    font-size:clamp(1.7rem,5vw,2.4rem);
+    color:var(--bordeaux);
+  }
+  .countdown-item label{
+    display:block;
+    margin-top:.3rem;
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brown-warm);
+  }
+  #countdown-finished{
+    margin-top:1.6rem;
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(1.2rem,3.4vw,1.7rem);
+    color:var(--bordeaux);
+  }
+
+  /* ---------- MESSAGE D'HONNEUR ---------- */
+  .message-section{
+    background:linear-gradient(180deg, var(--champagne), var(--ivory));
+  }
+  .message-card{
+    position:relative;
+    padding:clamp(2rem,6vw,3.2rem);
+    border:1px solid var(--gold);
+    border-radius:14px;
+    background:var(--ivory);
+    box-shadow:0 18px 45px -20px rgba(74,17,27,.35);
+    text-align:center;
+  }
+  .message-card p{
+    font-family:var(--font-body);
+    font-size:clamp(1.08rem,2.6vw,1.35rem);
+    line-height:1.75;
+    color:var(--bordeaux-dark);
+    font-style:italic;
+  }
+  .message-card p + p{ margin-top:1.1rem; }
+
+  /* ---------- INFOS ---------- */
+  .infos-section{
+    background:var(--bordeaux-dark);
+    color:var(--ivory);
+    text-align:center;
+  }
+  .infos-title{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(1.5rem,4vw,2.2rem);
+    color:var(--gold-light);
+  }
+  .infos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1.4rem;
+    margin-top:2.4rem;
+  }
+  .info-card{
+    padding:1.8rem 1.2rem;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(201,164,92,.4);
+    border-radius:12px;
+  }
+  .info-icon{
+    width:38px;
+    height:38px;
+    margin:0 auto .7rem;
+    color:var(--gold);
+  }
+  .info-label{
+    font-family:var(--font-display);
+    font-size:.68rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .info-value{
+    margin-top:.5rem;
+    font-family:var(--font-body);
+    font-size:1.15rem;
+    color:var(--champagne);
+  }
+
+  /* ---------- LOCALISATION / MAPS ---------- */
+  .location-section{
+    background:var(--ivory);
+    text-align:center;
+  }
+  .location-title{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(1.5rem,4vw,2.2rem);
+    color:var(--bordeaux);
+  }
+  .location-address{
+    margin-top:.6rem;
+    font-size:clamp(1.05rem,2.6vw,1.3rem);
+    color:var(--brown-warm);
+  }
+  .map-frame{
+    position:relative;
+    margin-top:2rem;
+    border:1px solid var(--gold);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 18px 45px -20px rgba(74,17,27,.4);
+    aspect-ratio:16/10;
+    background:var(--champagne);
+  }
+  .map-frame iframe{
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .btn-maps{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    margin-top:1.8rem;
+    padding:.85rem 2rem;
+    font-family:var(--font-display);
+    font-size:.75rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ivory);
+    background:var(--bordeaux);
+    border:1px solid var(--gold);
+    border-radius:999px;
+    transition:background .35s ease, box-shadow .35s ease, transform .2s ease;
+  }
+  .btn-maps::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border:1px solid rgba(74,17,27,.25);
+    border-radius:999px;
+    pointer-events:none;
+  }
+  .btn-maps:hover, .btn-maps:focus-visible{
+    background:var(--bordeaux-soft);
+    box-shadow:0 0 20px rgba(201,164,92,.45);
+  }
+  .btn-maps:active{ transform:scale(.97); }
+  .btn-maps-icon{
+    width:16px;
+    height:16px;
+    color:var(--gold-light);
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    position:relative;
+    padding:clamp(3.5rem,10vw,6rem) 1.4rem clamp(2.5rem,6vw,4rem);
+    text-align:center;
+    background:radial-gradient(ellipse at 50% 20%, var(--bordeaux-soft), var(--bordeaux-dark) 75%);
+    color:var(--champagne);
+    overflow:hidden;
+  }
+  .footer-quote{
+    position:relative;
+    z-index:2;
+    max-width:32ch;
+    margin:0 auto;
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(1.15rem,3vw,1.5rem);
+    line-height:1.6;
+  }
+  .footer-name{
+    position:relative;
+    z-index:2;
+    display:block;
+    margin-top:1.6rem;
+    font-family:var(--font-script);
+    font-size:clamp(2.4rem,7vw,3.4rem);
+    color:var(--gold-light);
+  }
+  .footer-date{
+    position:relative;
+    z-index:2;
+    display:block;
+    margin-top:.4rem;
+    font-family:var(--font-display);
+    letter-spacing:.2em;
+    font-size:.85rem;
+    color:var(--gold);
+  }
+
+  /* ---------- BACK TO TOP ---------- */
+  .back-to-top{
+    position:fixed;
+    bottom:1.3rem;
+    right:1.3rem;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--bordeaux);
+    color:var(--gold-light);
+    border:1px solid var(--gold);
+    font-size:1.1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    z-index:500;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .back-to-top.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .back-to-top[hidden]{ display:none; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width:480px){
+    .floral-corner{ width:clamp(70px,26vw,110px); }
+    .floral-corner--sm{ width:clamp(48px,18vw,80px); }
+    .info-card{ padding:1.4rem .9rem; }
+  }
+
+  @media (min-width:900px){
+    .section-inner{ max-width:880px; }
+  }
+
+  /* ============================================================
+     REDUCED MOTION
+  ============================================================ */
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+  }
+  .reduced-motion *{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .reduced-motion .particle{ display:none; }
+</style>
+</head>
+<body>
+
+<!-- Shared floral SVG symbol, referenced everywhere via <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="floral-motif" viewBox="0 0 220 220">
+      <path d="M110 205 C58 183 36 138 53 96 C69 55 110 44 110 44 C110 44 152 55 168 96 C185 138 163 183 110 205 Z" fill="#20281f" opacity="0.55"/>
+      <g transform="translate(66,14)">
+        <circle cx="42" cy="56" r="35" fill="#6b1626"/>
+        <circle cx="25" cy="40" r="27" fill="#7c1c2e"/>
+        <circle cx="57" cy="38" r="25" fill="#8a2436"/>
+        <circle cx="42" cy="62" r="16" fill="#a8324a"/>
+        <circle cx="42" cy="62" r="7" fill="#c9a45c"/>
+      </g>
+      <g transform="translate(138,88)">
+        <circle cx="0" cy="0" r="15" fill="#f3e5d8"/>
+        <circle cx="15" cy="6" r="13" fill="#efe0cf"/>
+        <circle cx="-8" cy="13" r="12" fill="#f7ecdf"/>
+        <circle cx="4" cy="17" r="6" fill="#c9a45c"/>
+      </g>
+      <g transform="translate(28,128)">
+        <circle cx="0" cy="0" r="9" fill="#fffaf3"/>
+        <circle cx="10" cy="3" r="8" fill="#fdf5ea"/>
+        <circle cx="4" cy="10" r="4.5" fill="#c9a45c"/>
+      </g>
+      <circle cx="150" cy="36" r="3" fill="#c9a45c"/>
+      <circle cx="167" cy="52" r="2" fill="#e4c888"/>
+      <circle cx="18" cy="68" r="2.4" fill="#c9a45c"/>
+      <circle cx="100" cy="140" r="2" fill="#e4c888"/>
+    </symbol>
+
+    <!-- Motif arabesque tuilable, utilisé en texture de fond très discrète -->
+    <pattern id="arabesque-pattern" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M32 4 L48 16 L60 32 L48 48 L32 60 L16 48 L4 32 L16 16 Z" fill="none" stroke="#C9A45C" stroke-width="1"/>
+      <circle cx="32" cy="32" r="5" fill="none" stroke="#C9A45C" stroke-width="1"/>
+      <path d="M32 4 L32 60 M4 32 L60 32" stroke="#C9A45C" stroke-width=".6"/>
+    </pattern>
+
+    <!-- Petite fioriture d'angle pour cadres ornés -->
+    <symbol id="corner-flourish" viewBox="0 0 60 60">
+      <path d="M3 34 L3 12 Q3 3 12 3 L34 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="11" cy="11" r="2.6" fill="currentColor"/>
+      <path d="M3 44 Q13 44 13 54" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M44 3 Q44 13 54 13" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Illustration : alliances entrelacées -->
+    <symbol id="wedding-rings" viewBox="0 0 110 64">
+      <circle cx="42" cy="34" r="19" fill="none" stroke="currentColor" stroke-width="4.2"/>
+      <circle cx="68" cy="34" r="19" fill="none" stroke="currentColor" stroke-width="4.2"/>
+      <path d="M69 12 L71.5 19 L79 20.5 L73 25.5 L75 33 L69 28.8 L63 33 L65 25.5 L59 20.5 L66.5 19 Z" fill="currentColor"/>
+    </symbol>
+
+    <!-- Illustration : arche / palais oriental (clin d'oeil au "Ksar") -->
+    <symbol id="palace-arch" viewBox="0 0 240 132" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 127 L18 62 Q18 36 34 30"/>
+      <path d="M34 30 Q34 14 50 14"/>
+      <circle cx="50" cy="7" r="3.4" fill="currentColor" stroke="none"/>
+      <path d="M222 127 L222 62 Q222 36 206 30"/>
+      <path d="M206 30 Q206 14 190 14"/>
+      <circle cx="190" cy="7" r="3.4" fill="currentColor" stroke="none"/>
+      <path d="M78 127 L78 68 Q78 22 120 17 Q162 22 162 68 L162 127"/>
+      <path d="M104 127 L104 84 Q104 63 120 63 Q136 63 136 84 L136 127"/>
+      <circle cx="120" cy="8" r="4.2" fill="currentColor" stroke="none"/>
+      <path d="M12 127 L228 127" stroke-width="1.6"/>
+    </symbol>
+
+    <!-- Monogramme : initiale sous couronne de laurier -->
+    <symbol id="monogram-a" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="65" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="70" cy="70" r="57" fill="none" stroke="currentColor" stroke-width=".8"/>
+      <g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round">
+        <path d="M31 96 Q20 70 31 44"/>
+        <path d="M31 54 Q20 54 16 47"/>
+        <path d="M29 68 Q18 68 14 61"/>
+        <path d="M29 83 Q18 83 14 77"/>
+      </g>
+      <g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round">
+        <path d="M109 96 Q120 70 109 44"/>
+        <path d="M109 54 Q120 54 124 47"/>
+        <path d="M111 68 Q122 68 126 61"/>
+        <path d="M111 83 Q122 83 126 77"/>
+      </g>
+      <text x="70" y="86" font-family="Cinzel, serif" font-size="44" text-anchor="middle" fill="currentColor">A</text>
+    </symbol>
+
+    <!-- Icônes fines assorties au style doré, en remplacement des émojis -->
+    <symbol id="icon-calendar" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="10" width="36" height="32" rx="3"/>
+      <path d="M6 19 L42 19"/>
+      <path d="M15 5 L15 13"/>
+      <path d="M33 5 L33 13"/>
+      <circle cx="17" cy="28" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="24" cy="28" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="31" cy="28" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="17" cy="35" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="24" cy="35" r="1.8" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="24" cy="24" r="18"/>
+      <path d="M24 14 L24 25 L32 30"/>
+      <circle cx="24" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-pin" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44 C24 44 39 29.5 39 18.5 C39 10 32.2 4 24 4 C15.8 4 9 10 9 18.5 C9 29.5 24 44 24 44 Z"/>
+      <circle cx="24" cy="18.5" r="6.5"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     ÉTAPE 1 — ÉCRAN ENVELOPPE
+============================================================ -->
+<div class="envelope-screen" id="envelopeScreen">
+  <svg class="arabesque-bg" aria-hidden="true"><rect width="100%" height="100%"/></svg>
+  <div class="particles-layer" id="particlesEnvelope" aria-hidden="true"></div>
+
+  <svg class="floral-corner floral-corner--tl" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+  <svg class="floral-corner floral-corner--tr" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+  <svg class="floral-corner floral-corner--bl" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+  <svg class="floral-corner floral-corner--br" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+
+  <button type="button" class="sound-toggle" id="soundToggle" aria-label="Activer le son d'ambiance" aria-pressed="false">🔈</button>
+
+  <div class="envelope-intro" id="envelopeIntro">
+    <p class="envelope-preamble">Vous êtes cordialement invités&hellip;</p>
+
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+      <div class="card-inside" id="cardInside">
+        <span class="card-name">Amine</span>
+        <span class="card-sub">Famille ISSAADI DJEBAR</span>
+      </div>
+      <div class="envelope-flap envelope-flap--left"></div>
+      <div class="envelope-flap envelope-flap--right"></div>
+      <div class="envelope-seal" id="envelopeSeal"><span>A</span></div>
+    </div>
+
+    <button type="button" class="btn-open" id="openInvitationBtn" aria-label="Ouvrir l'invitation de mariage">
+      Ouvrir l'invitation
+    </button>
+  </div>
+</div>
+
+<audio id="ambientAudio" loop preload="none">
+  <!-- Optionnel : ajoutez votre propre fichier audio d'ambiance ici, ex :
+       <source src="votre-musique.mp3" type="audio/mpeg"> -->
+</audio>
+
+<!-- ============================================================
+     CONTENU PRINCIPAL
+============================================================ -->
+<main class="main-content" id="mainContent" aria-hidden="true">
+
+  <!-- ÉTAPE 2 — INVITATION PRINCIPALE -->
+  <section class="section hero-section" id="hero">
+    <svg class="arabesque-bg" aria-hidden="true"><rect width="100%" height="100%"/></svg>
+    <svg class="palace-watermark" viewBox="0 0 240 132" aria-hidden="true"><use href="#palace-arch"></use></svg>
+    <div class="particles-layer" id="particlesHero" aria-hidden="true"></div>
+    <div class="section-vignette" aria-hidden="true"></div>
+    <svg class="floral-corner floral-corner--tl" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+    <svg class="floral-corner floral-corner--br" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+
+    <div class="hero-inner">
+      <svg class="hero-crest reveal" viewBox="0 0 140 140" aria-hidden="true"><use href="#monogram-a"></use></svg>
+      <p class="hero-family reveal">Famille ISSAADI DJEBAR</p>
+      <p class="hero-lede reveal reveal-delay-1">a l'honneur de vous inviter au mariage de leur fils</p>
+      <h1 class="hero-name reveal reveal-delay-2">Amine</h1>
+      <p class="hero-name-sub reveal reveal-delay-2" aria-hidden="true">A&nbsp;·&nbsp;M&nbsp;·&nbsp;I&nbsp;·&nbsp;N&nbsp;·&nbsp;E</p>
+      <p class="hero-date reveal reveal-delay-3">01 OCTOBRE 2026</p>
+      <p class="hero-time reveal reveal-delay-3">À 15H00</p>
+    </div>
+
+    <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+      <span>↓</span>
+      <span>Faites défiler</span>
+    </div>
+  </section>
+
+  <!-- ÉTAPE 3 — COMPTE À REBOURS -->
+  <section class="section countdown-section" id="countdown">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Patience</p>
+      <h2 class="countdown-title reveal reveal-delay-1">Le grand jour approche&hellip;</h2>
+      <div class="divider reveal reveal-delay-1"></div>
+
+      <div class="countdown reveal reveal-delay-2" id="countdownTimer" role="timer" aria-live="polite" aria-label="Compte à rebours avant le mariage">
+        <div class="countdown-item">
+          <span id="cdDays">00</span>
+          <label>Jours</label>
+        </div>
+        <div class="countdown-item">
+          <span id="cdHours">00</span>
+          <label>Heures</label>
+        </div>
+        <div class="countdown-item">
+          <span id="cdMinutes">00</span>
+          <label>Minutes</label>
+        </div>
+        <div class="countdown-item">
+          <span id="cdSeconds">00</span>
+          <label>Secondes</label>
+        </div>
+      </div>
+
+      <p id="countdownFinished" hidden>Le grand jour est arrivé !</p>
+    </div>
+  </section>
+
+  <!-- ÉTAPE 4 — MESSAGE D'HONNEUR -->
+  <section class="section message-section" id="message">
+    <svg class="floral-corner floral-corner--sm floral-corner--tl" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+    <svg class="floral-corner floral-corner--sm floral-corner--br" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+    <div class="section-inner">
+      <svg class="rings-illustration reveal" viewBox="0 0 110 64" aria-hidden="true"><use href="#wedding-rings"></use></svg>
+      <p class="eyebrow reveal">Avec joie et honneur</p>
+      <div class="divider reveal"></div>
+      <div class="message-card ornate-frame reveal reveal-delay-1">
+        <svg class="corner-flourish corner-flourish--tl" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <svg class="corner-flourish corner-flourish--tr" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <svg class="corner-flourish corner-flourish--br" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <svg class="corner-flourish corner-flourish--bl" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <p>Dans la joie et l'honneur, la famille ISSAADI DJEBAR a le plaisir de vous convier au mariage de leur fils AMINE.</p>
+        <p>Votre présence à leurs côtés en ce jour exceptionnel sera pour eux un honneur et une immense joie.</p>
+        <p>Nous serions heureux de partager avec vous ces instants précieux, placés sous le signe de l'amour, du bonheur et de la convivialité.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉTAPE 5 — INFORMATIONS -->
+  <section class="section infos-section" id="infos">
+    <svg class="arabesque-bg" aria-hidden="true"><rect width="100%" height="100%"/></svg>
+    <div class="section-vignette" aria-hidden="true"></div>
+    <div class="section-inner">
+      <p class="eyebrow reveal">Détails</p>
+      <h2 class="infos-title reveal reveal-delay-1">Le rendez-vous</h2>
+      <div class="divider reveal reveal-delay-1"></div>
+
+      <div class="infos-grid">
+        <div class="info-card reveal reveal-delay-1">
+          <svg class="info-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-calendar"></use></svg>
+          <p class="info-label">Date</p>
+          <p class="info-value">01 Octobre 2026</p>
+        </div>
+        <div class="info-card reveal reveal-delay-2">
+          <svg class="info-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-clock"></use></svg>
+          <p class="info-label">Heure</p>
+          <p class="info-value">15h00</p>
+        </div>
+        <div class="info-card reveal reveal-delay-3">
+          <svg class="info-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-pin"></use></svg>
+          <p class="info-label">Lieu</p>
+          <p class="info-value">Salle de fête Ksar Djihan<br>Aïn Romane – Sétif</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉTAPE 6 — GOOGLE MAPS -->
+  <section class="section location-section" id="location">
+    <div class="section-inner">
+      <svg class="palace-illustration reveal" viewBox="0 0 240 132" aria-hidden="true"><use href="#palace-arch"></use></svg>
+      <p class="eyebrow reveal">Localisation</p>
+      <h2 class="location-title reveal reveal-delay-1">Nous vous attendons</h2>
+      <div class="divider reveal reveal-delay-1"></div>
+      <p class="location-address reveal reveal-delay-1">Salle de fête Ksar Djihan<br>Aïn Romane – Sétif, Algérie</p>
+
+      <div class="map-frame ornate-frame reveal reveal-delay-2">
+        <svg class="corner-flourish corner-flourish--tl" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <svg class="corner-flourish corner-flourish--tr" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <svg class="corner-flourish corner-flourish--br" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <svg class="corner-flourish corner-flourish--bl" viewBox="0 0 60 60" aria-hidden="true"><use href="#corner-flourish"></use></svg>
+        <iframe
+          id="mapFrame"
+          title="Localisation de la Salle de fête Ksar Djihan"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <a class="btn-maps reveal reveal-delay-3" id="openMapsBtn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir l'itinéraire vers la salle des fêtes dans Google Maps">
+        <svg class="btn-maps-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-pin"></use></svg> Ouvrir dans Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <svg class="arabesque-bg" aria-hidden="true"><rect width="100%" height="100%"/></svg>
+    <div class="particles-layer" id="particlesFooter" aria-hidden="true"></div>
+    <svg class="floral-corner floral-corner--sm floral-corner--tl" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+    <svg class="floral-corner floral-corner--sm floral-corner--tr" viewBox="0 0 220 220" aria-hidden="true"><use href="#floral-motif"></use></svg>
+
+    <p class="footer-quote reveal">Votre présence fera partie des plus beaux souvenirs de cette journée.</p>
+    <span class="footer-name reveal reveal-delay-1">Amine</span>
+    <span class="footer-date reveal reveal-delay-1">01.10.2026</span>
+  </footer>
+
+</main>
+
+<button type="button" class="back-to-top" id="backToTop" hidden aria-label="Retour en haut de la page">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     0. PRÉFÉRENCES D'ACCESSIBILITÉ
+  ============================================================ */
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    document.documentElement.classList.add('reduced-motion');
+  }
+  document.documentElement.classList.add('pre-open');
+
+  /* ============================================================
+     1. VARIABLE DE LOCALISATION — À MODIFIER SI BESOIN
+     -------------------------------------------------------------
+     ⚠️ Les coordonnées GPS exactes du lieu n'ont pas pu être
+     vérifiées avec certitude : elles sont volontairement laissées
+     vides plutôt que d'être inventées.
+     Pour les compléter :
+       1) Ouvrez Google Maps et recherchez "Salle de fête Ksar
+          Djihan, Aïn Romane, Sétif".
+       2) Faites un clic droit sur le point exact du lieu, puis
+          cliquez sur les coordonnées affichées pour les copier.
+       3) Collez-les ci-dessous dans lat / lng.
+       4) Vous pouvez aussi coller l'URL complète obtenue via le
+          bouton "Partager" de Google Maps dans googleMapsUrl.
+     Tant que ces champs sont vides, le site utilise l'adresse
+     textuelle pour générer la carte et l'itinéraire.
+  ============================================================ */
+  var WEDDING_LOCATION = {
+    name: "Salle de fête Ksar Djihan",
+    address: "Aïn Romane, Sétif, Algérie",
+    lat: "",
+    lng: "",
+    googleMapsUrl: ""
+  };
+
+  /* ============================================================
+     2. DATE DU MARIAGE — utilise l'heure locale du navigateur
+  ============================================================ */
+  var WEDDING_DATE = new Date(2026, 9, 1, 15, 0, 0); // 1er Octobre 2026, 15h00
+
+  /* ============================================================
+     3. PARTICULES DORÉES
+  ============================================================ */
+  function createParticles(container, count){
+    if (!container || prefersReducedMotion) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < count; i++){
+      var p = document.createElement('span');
+      p.className = 'particle';
+      var size = (3 + Math.random() * 5).toFixed(1);
+      var left = (Math.random() * 100).toFixed(1);
+      var duration = (9 + Math.random() * 9).toFixed(1);
+      var delay = (Math.random() * 12).toFixed(1);
+      var dx = (Math.random() * 60 - 30).toFixed(0);
+      var scale = (0.6 + Math.random() * 0.8).toFixed(2);
+      var opacity = (0.4 + Math.random() * 0.4).toFixed(2);
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = left + '%';
+      p.style.animationDuration = duration + 's';
+      p.style.animationDelay = delay + 's';
+      p.style.setProperty('--dx', dx + 'px');
+      p.style.setProperty('--s', scale);
+      p.style.setProperty('--o', opacity);
+      frag.appendChild(p);
+    }
+    container.appendChild(frag);
+  }
+
+  createParticles(document.getElementById('particlesEnvelope'), 14);
+  createParticles(document.getElementById('particlesHero'), 12);
+  createParticles(document.getElementById('particlesFooter'), 10);
+
+  /* ============================================================
+     4. OUVERTURE DE L'ENVELOPPE
+  ============================================================ */
+  var envelopeScreen = document.getElementById('envelopeScreen');
+  var envelope = document.getElementById('envelope');
+  var envelopeIntro = document.getElementById('envelopeIntro');
+  var cardInside = document.getElementById('cardInside');
+  var openBtn = document.getElementById('openInvitationBtn');
+  var mainContent = document.getElementById('mainContent');
+  var hero = document.getElementById('hero');
+
+  var TIMINGS = prefersReducedMotion
+    ? { seal: 0, doors: 50, card: 100, zoom: 150, hide: 250 }
+    : { seal: 0, doors: 420, card: 760, zoom: 1420, hide: 2350 };
+
+  function openEnvelope(){
+    if (openBtn.disabled) return;
+    openBtn.disabled = true;
+    openBtn.setAttribute('aria-label', "Ouverture de l'invitation en cours");
+
+    setTimeout(function(){ envelope.classList.add('sealing-out'); }, TIMINGS.seal);
+    setTimeout(function(){ envelope.classList.add('doors-open'); }, TIMINGS.doors);
+    setTimeout(function(){ cardInside.classList.add('card-out'); }, TIMINGS.card);
+    setTimeout(function(){ envelopeIntro.classList.add('envelope--zoom'); }, TIMINGS.zoom);
+    setTimeout(function(){
+      envelopeScreen.classList.add('envelope-screen--hidden');
+      document.documentElement.classList.remove('pre-open');
+      mainContent.removeAttribute('aria-hidden');
+      envelopeScreen.setAttribute('aria-hidden', 'true');
+      // Déplace le focus clavier vers le contenu principal, pour l'accessibilité
+      if (hero) {
+        hero.setAttribute('tabindex', '-1');
+        hero.focus({ preventScroll: true });
+      }
+    }, TIMINGS.hide);
+  }
+
+  openBtn.addEventListener('click', openEnvelope);
+
+  /* ============================================================
+     5. SON D'AMBIANCE (désactivé par défaut, opt-in utilisateur)
+  ============================================================ */
+  var soundToggle = document.getElementById('soundToggle');
+  var ambientAudio = document.getElementById('ambientAudio');
+  var soundOn = false;
+
+  soundToggle.addEventListener('click', function(){
+    soundOn = !soundOn;
+    soundToggle.setAttribute('aria-pressed', String(soundOn));
+    soundToggle.textContent = soundOn ? '🔊' : '🔈';
+    soundToggle.setAttribute('aria-label', soundOn ? "Couper le son d'ambiance" : "Activer le son d'ambiance");
+    if (soundOn) {
+      ambientAudio.play().catch(function(){
+        /* Aucune source audio définie, ou lecture bloquée par le navigateur : silence sans erreur. */
+      });
+    } else {
+      ambientAudio.pause();
+    }
+  });
+
+  /* ============================================================
+     6. COMPTE À REBOURS
+  ============================================================ */
+  var cdDays = document.getElementById('cdDays');
+  var cdHours = document.getElementById('cdHours');
+  var cdMinutes = document.getElementById('cdMinutes');
+  var cdSeconds = document.getElementById('cdSeconds');
+  var countdownTimer = document.getElementById('countdownTimer');
+  var countdownFinished = document.getElementById('countdownFinished');
+  var countdownIntervalId = null;
+
+  function pad(n){ return String(n).padStart(2, '0'); }
+
+  function updateCountdown(){
+    var now = new Date();
+    var diff = WEDDING_DATE.getTime() - now.getTime();
+
+    if (diff <= 0){
+      if (countdownTimer) countdownTimer.hidden = true;
+      if (countdownFinished) countdownFinished.hidden = false;
+      if (countdownIntervalId) clearInterval(countdownIntervalId);
+      return;
+    }
+
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+
+    if (cdDays) cdDays.textContent = pad(days);
+    if (cdHours) cdHours.textContent = pad(hours);
+    if (cdMinutes) cdMinutes.textContent = pad(minutes);
+    if (cdSeconds) cdSeconds.textContent = pad(seconds);
+  }
+
+  updateCountdown();
+  countdownIntervalId = setInterval(updateCountdown, 1000);
+
+  /* ============================================================
+     7. GOOGLE MAPS
+  ============================================================ */
+  function initMap(){
+    var hasCoords = WEDDING_LOCATION.lat !== "" && WEDDING_LOCATION.lng !== "" &&
+                    WEDDING_LOCATION.lat !== null && WEDDING_LOCATION.lng !== null;
+
+    var query = hasCoords
+      ? (WEDDING_LOCATION.lat + ',' + WEDDING_LOCATION.lng)
+      : (WEDDING_LOCATION.name + ', ' + WEDDING_LOCATION.address);
+
+    var encodedQuery = encodeURIComponent(query);
+
+    var mapFrame = document.getElementById('mapFrame');
+    if (mapFrame){
+      mapFrame.src = 'https://www.google.com/maps?q=' + encodedQuery + '&z=16&output=embed';
+    }
+
+    var mapsBtn = document.getElementById('openMapsBtn');
+    if (mapsBtn){
+      var directionsUrl = (WEDDING_LOCATION.googleMapsUrl && WEDDING_LOCATION.googleMapsUrl.trim() !== "")
+        ? WEDDING_LOCATION.googleMapsUrl
+        : ('https://www.google.com/maps/dir/?api=1&destination=' + encodedQuery);
+      mapsBtn.setAttribute('href', directionsUrl);
+    }
+  }
+
+  initMap();
+
+  /* ============================================================
+     8. ANIMATIONS AU SCROLL (IntersectionObserver)
+  ============================================================ */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ============================================================
+     9. INDICATEUR DE SCROLL — disparaît après le premier scroll
+  ============================================================ */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  function onFirstScroll(){
+    if (scrollIndicator) scrollIndicator.classList.add('hidden-indicator');
+    window.removeEventListener('scroll', onFirstScroll);
+  }
+  window.addEventListener('scroll', onFirstScroll, { passive: true, once: true });
+
+  /* ============================================================
+     10. BOUTON RETOUR EN HAUT
+  ============================================================ */
+  var backToTop = document.getElementById('backToTop');
+  var ticking = false;
+
+  function updateBackToTop(){
+    var show = window.scrollY > 600;
+    if (show){
+      backToTop.hidden = false;
+      requestAnimationFrame(function(){ backToTop.classList.add('is-visible'); });
+    } else {
+      backToTop.classList.remove('is-visible');
+      setTimeout(function(){
+        if (!backToTop.classList.contains('is-visible')) backToTop.hidden = true;
+      }, 400);
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function(){
+    if (!ticking){
+      window.requestAnimationFrame(updateBackToTop);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  backToTop.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  });
+
+})();
+</script>
+</body>
+</html>
