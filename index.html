@@ -697,6 +697,59 @@
     color:var(--champagne);
   }
 
+  .reminder-box{
+    margin-top:2.6rem;
+    padding-top:2.2rem;
+    border-top:1px solid rgba(201,164,92,.3);
+  }
+  .reminder-icon{
+    width:34px;
+    height:34px;
+    margin:0 auto .7rem;
+    color:var(--gold);
+  }
+  .reminder-text{
+    max-width:36ch;
+    margin:0 auto 1.2rem;
+    font-size:1.05rem;
+    color:var(--champagne);
+  }
+  .btn-reminder{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.8rem 1.9rem;
+    font-family:var(--font-display);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--bordeaux-dark);
+    background:linear-gradient(160deg, var(--gold-light), var(--gold));
+    border:1px solid var(--gold-light);
+    border-radius:999px;
+    transition:box-shadow .35s ease, transform .2s ease;
+  }
+  .btn-reminder::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border:1px solid rgba(228,200,136,.3);
+    border-radius:999px;
+    pointer-events:none;
+  }
+  .btn-reminder:hover, .btn-reminder:focus-visible{
+    box-shadow:0 0 20px rgba(201,164,92,.5);
+  }
+  .btn-reminder:active{ transform:scale(.97); }
+  .reminder-hint{
+    margin-top:.9rem;
+    min-height:1.2em;
+    font-size:.85rem;
+    font-style:italic;
+    color:var(--gold-light);
+  }
+
   /* ---------- LOCALISATION / MAPS ---------- */
   .location-section{
     background:var(--ivory);
@@ -964,6 +1017,11 @@
       <path d="M24 44 C24 44 39 29.5 39 18.5 C39 10 32.2 4 24 4 C15.8 4 9 10 9 18.5 C9 29.5 24 44 24 44 Z"/>
       <circle cx="24" cy="18.5" r="6.5"/>
     </symbol>
+    <symbol id="icon-bell" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 6 C17 6 13 11 13 18 L13 26 L9 33 L39 33 L35 26 L35 18 C35 11 31 6 24 6 Z"/>
+      <path d="M19 33 C19 37 21.2 40 24 40 C26.8 40 29 37 29 33"/>
+      <circle cx="24" cy="6" r="2" fill="currentColor" stroke="none"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -1111,6 +1169,15 @@
           <p class="info-label">Lieu</p>
           <p class="info-value">Salle de fête Ksar Djihan<br>Aïn Romane – Sétif</p>
         </div>
+      </div>
+
+      <div class="reminder-box reveal reveal-delay-3">
+        <svg class="reminder-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-bell"></use></svg>
+        <p class="reminder-text">Ne manquez pas ce moment : recevez un rappel dans votre calendrier la veille du mariage.</p>
+        <button type="button" class="btn-reminder" id="addReminderBtn" aria-label="Ajouter un rappel 24 heures avant le mariage dans mon calendrier">
+          Ajouter un rappel (24h avant)
+        </button>
+        <p class="reminder-hint" id="reminderHint" role="status" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -1333,6 +1400,97 @@
 
   updateCountdown();
   countdownIntervalId = setInterval(updateCountdown, 1000);
+
+  /* ============================================================
+     6bis. RAPPEL CALENDRIER — notification 24h avant l'événement
+     -------------------------------------------------------------
+     Un site statique ne peut pas envoyer de vraie notification push
+     tant que le téléphone de l'invité n'a pas l'onglet ouvert (cela
+     demanderait un serveur). La solution fiable et universelle est
+     de générer un fichier .ics : l'invité l'ouvre une fois, il est
+     ajouté à son calendrier (Apple/Google/Outlook...), qui se charge
+     alors d'envoyer une vraie notification 24h avant, même appareil
+     éteint entre-temps.
+     La durée de l'événement (DTEND) est estimée à 4h : ajustez
+     EVENT_DURATION_HOURS si besoin.
+  ============================================================ */
+  var EVENT_DURATION_HOURS = 4;
+
+  function pad2(n){ return String(n).padStart(2, '0'); }
+
+  // Heure "flottante" (comme le compte à rebours) : correspond à l'heure
+  // locale de l'invité, en supposant qu'il se trouve au même fuseau que
+  // la salle (Algérie). Pas de suffixe "Z" ici, volontairement.
+  function formatICSDateFloating(date){
+    return date.getFullYear() + pad2(date.getMonth() + 1) + pad2(date.getDate()) +
+      'T' + pad2(date.getHours()) + pad2(date.getMinutes()) + '00';
+  }
+
+  // Horodatage technique DTSTAMP : celui-ci doit être en UTC réel.
+  function formatICSDateUTC(date){
+    return date.getUTCFullYear() + pad2(date.getUTCMonth() + 1) + pad2(date.getUTCDate()) +
+      'T' + pad2(date.getUTCHours()) + pad2(date.getUTCMinutes()) + pad2(date.getUTCSeconds()) + 'Z';
+  }
+
+  function escapeICS(text){
+    return String(text).replace(/([,;])/g, '\\$1');
+  }
+
+  function buildICS(){
+    var start = WEDDING_DATE;
+    var end = new Date(start.getTime() + EVENT_DURATION_HOURS * 60 * 60 * 1000);
+    var location = escapeICS(WEDDING_LOCATION.name + ', ' + WEDDING_LOCATION.address);
+
+    var lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Mariage Amine - Famille ISSAADI DJEBAR//FR',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      'UID:mariage-amine-issaadi-djebar-01102026@invitation',
+      'DTSTAMP:' + formatICSDateUTC(new Date()),
+      'DTSTART:' + formatICSDateFloating(start),
+      'DTEND:' + formatICSDateFloating(end),
+      'SUMMARY:Mariage de Amine — Famille ISSAADI DJEBAR',
+      'DESCRIPTION:' + escapeICS("Mariage de Amine, fils de la famille ISSAADI DJEBAR."),
+      'LOCATION:' + location,
+      'BEGIN:VALARM',
+      'ACTION:DISPLAY',
+      'DESCRIPTION:' + escapeICS("Rappel : le mariage d'Amine est demain à 15h00 !"),
+      'TRIGGER:-P1D',
+      'END:VALARM',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ];
+
+    return lines.join('\r\n');
+  }
+
+  function downloadReminder(){
+    var icsContent = buildICS();
+    var blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement('a');
+    link.href = url;
+    link.download = 'mariage-amine.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }
+
+  var addReminderBtn = document.getElementById('addReminderBtn');
+  var reminderHint = document.getElementById('reminderHint');
+
+  if (addReminderBtn){
+    addReminderBtn.addEventListener('click', function(){
+      downloadReminder();
+      if (reminderHint){
+        reminderHint.textContent = "C'est fait ! Ouvrez le fichier téléchargé pour l'ajouter à votre calendrier — la notification arrivera 24h avant.";
+      }
+    });
+  }
 
   /* ============================================================
      7. GOOGLE MAPS
